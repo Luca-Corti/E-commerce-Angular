@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { ServiceService } from '../service/service.service';
 
 @Component({
@@ -6,12 +6,11 @@ import { ServiceService } from '../service/service.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit{
-  counter:number=this.srv.counter
-  constructor(private srv:ServiceService) { }
+export class NavbarComponent implements OnInit {
+
+  constructor(public srv:ServiceService) { }
 
   ngOnInit(): void {
   }
-
 
 }

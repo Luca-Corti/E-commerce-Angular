@@ -1,12 +1,16 @@
-<ul class="list-group" *ngIf="cart.length>0; else empty">
+<ng-container *ngIf="cart.length>0; else empty">
+<ul class="list-group" >
   <li *ngFor="let product of cart;let i = index" class="list-group-item d-flex justify-content-between align-items-center">
     {{product.title.substring(0,45)}}...
-
+    <span>{{product.price}}€</span>
     <button class="btn btn-danger" (click)="deleteFromCart(i)">X</button>
   </li>
-  <li class="list-group-item d-flex justify-content-end align-items-center">Totale: {{total}}</li>
+  <li class="list-group-item d-flex justify-content-end align-items-center">Totale: {{total}}€</li>
 </ul>
-
+<div class="container my-3">
+<button class="btn btn-primary">Procedi al checkout</button>
+</div>
+</ng-container>
 <ng-template #empty>
   <div class="card m-3">
     <div class="card-header">

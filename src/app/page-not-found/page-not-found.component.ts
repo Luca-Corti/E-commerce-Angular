@@ -12,6 +12,7 @@ export class PageNotFoundComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  //faccio il redirect alla homepage
   redirect(){
     this.router.navigate([''])
   }
