@@ -1,0 +1,22 @@
+<ng-container *ngIf="ready; else load">
+  <h1 class="text-center">GameGo</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4 px-4">
+    <div class="col" *ngFor="let product of products">
+      <div class="card h-100">
+        <img [src]="product.url" [routerLink]="['/product', product.id]" class="card-img-top" alt="product image">
+        <div class="card-body">
+          <a class="card-title" [routerLink]="['/product', product.id]">{{product.title}}</a>
+          <h5 class="card-badge">{{product.price}}€</h5>
+          <p class="card-text">{{product.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+  <ng-template #load>
+    <div class="d-flex justify-content-center my-5">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>

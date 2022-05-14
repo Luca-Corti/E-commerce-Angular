@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Minecraft Java Edition PC Key",
+      "price": 17.99,
+      "description": "Minecraft è un gioco dove si può assolutamente dare libero sfogo alla vostra immaginazione: è possibile creare un mondo e condividerlo su internet.",
+      "details": "Questo è un gioco sandbox, scritto in Java con il suo stile di grafica 8-bit, piuttosto brutto, ma questo non ha importanza in quanto è ancora estremamente divertente. Sono disponibili come la Modalità Classic o Survival Mode dove si deve sopravvivere in un mondo generato casualmente diverse modalità. La mappa è semplicemente enorme e può rappresentare fino a 10 volte la superficie della Terra! Tutto è possibile in Minecraft: alberi, foreste, fiumi, vulcani, deserti, animali, mostri... Se tutto va bene durante il giorno, al calar della notte, i mostri emergono da ogni dove e si dovrebbe essere molto attenti ... Questo è dove le tue abilità di costruzione di trappole e di tutti gli altri rifugi saranno utili. Per costruire la tua roba avrete ovviamente bisogno le risorse raccolte negli alberi o rocce che si trovano in tutto il mondo o in casse nascoste ovunque.",
+      "url":"assets/img/1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Elder Ring EU version PC Key",
+      "price": 59.99,
+      "description": "Alzati, offuscato, e lasciati guidare dalla grazia per brandire il potere dell'Elden Ring e diventare un Elden Lord nelle terre intermedie.",
+      "details": "L'Ordine d'Oro è stato infranto. Alzati, offuscato, e lasciati guidare dalla grazia per brandire il potere dell'Elden Ring e diventare un Elden Lord nelle terre intermedie. Nelle terre intermedie governate dalla regina Marika l'Eterna, l'Elden Ring, la fonte dell'Erdtree, è stato frantumato. I discendenti di Marika, tutti semidei, reclamarono i frammenti dell'Anello Elden noto come le Grandi Rune, e la folle macchia della loro ritrovata forza scatenò una guerra: The Shattering. Una guerra che ha significato l'abbandono da parte della Volontà Superiore. E ora la guida della grazia sarà portata agli Oscurati che furono respinti dalla grazia dell'oro ed esiliati dalle Terre intermedie. Voi morti che vivete ancora, vostra grazia perduta da tempo, seguite il sentiero verso le terre intermedie al di là del mare nebbioso per stare davanti all'Elden Ring. E diventa il Signore degli Elden.",
+      "url" : "assets/img/2.webp"
+    },
+    {
+      "id": 3,
+      "title": "The Legend of Zelda: Breath of the Wild EU Nintendo Switch Key",
+      "price": 29.99,
+      "description": "Dopo un sonno di 100 anni, Link si sveglia da solo in un mondo che non ricorda più. Ora il leggendario eroe deve esplorare una terra vasta e pericolosa",
+      "details": "Nessun regno. Nessun ricordo. Dopo un sonno di 100 anni, Link si sveglia da solo in un mondo che non ricorda più. Ora il leggendario eroe deve esplorare una terra vasta e pericolosa e riconquistare i suoi ricordi prima che Hyrule sia perso per sempre. Armato solo di ciò che può raccogliere, Link si propone di trovare risposte e le risorse necessarie per sopravvivere. Esplora il paesaggio di Hyrule come preferisci. Sali su torri e cime montuose alla ricerca di nuove destinazioni, quindi imposta il tuo percorso e tuffati nella natura selvaggia.",
+      "url":"assets/img/3.webp"
+    }
+  ]
+}

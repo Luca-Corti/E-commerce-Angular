@@ -1,0 +1,20 @@
+<ul class="list-group" *ngIf="cart.length>0; else empty">
+  <li *ngFor="let product of cart;let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+    {{product.title.substring(0,45)}}...
+
+    <button class="btn btn-danger" (click)="deleteFromCart(i)">X</button>
+  </li>
+  <li class="list-group-item d-flex justify-content-end align-items-center">Totale: {{total}}</li>
+</ul>
+
+<ng-template #empty>
+  <div class="card m-3">
+    <div class="card-header">
+      Il tuo carrello è vuoto
+    </div>
+    <div class="card-body">
+      <p class="card-text">Torna alla lista prodotti e aggiungine alcuni per continuare con l'acquisto</p>
+      <a (click)="redirect()" class="btn btn-primary">Home</a>
+    </div>
+  </div>
+</ng-template>
