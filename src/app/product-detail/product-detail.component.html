@@ -7,6 +7,9 @@
     <p class="card-text">{{product.details}}</p>
     <h5 class="card-title">{{product.price}}€</h5>
     <button type="button" class="btn btn-primary" (click)="addToCart()">Aggiungi al carrello</button>
+    <span class="alert alert-info mx-5" role="alert" *ngIf="addCount>0">
+      Prodotto aggiunto al carrello! <span class="badge bg-secondary">x{{addCount}}</span>
+    </span>
   </div>
 </div>
 </ng-container>

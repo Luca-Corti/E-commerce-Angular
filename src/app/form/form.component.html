@@ -1,35 +1,35 @@
-<div class="container">
+<div class="container" *ngIf="!this.srv.submitted; else acquisto">
   <p></p>
   <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="col-md-6">
-      <label for="email" class="form-label">Email</label>
+      <label for="email" class="form-label">Email*</label>
       <input type="email" class="form-control" id="email" required formControlName="email">
     </div>
       <div class="col-md-6">
-        <label for="nome" class="form-label">Nome fatturazione</label>
+        <label for="nome" class="form-label">Nome fatturazione*</label>
         <input type="text" class="form-control" id="nome" required formControlName="nomeFatturazione">
       </div>
       <div class="col-12">
-        <label for="address" class="form-label">indirizzo di consegna</label>
+        <label for="address" class="form-label">indirizzo di consegna*</label>
         <input type="text" class="form-control" id="address" placeholder="Via Mario Rossi 3" required formControlName="indirizzo1">
       </div>
       <div class="col-12">
         <input type="text" class="form-control" id="address2" formControlName="indirizzo2" >
       </div>
       <div class="col-md-6">
-        <label for="city" class="form-label">Città</label>
+        <label for="city" class="form-label">Città*</label>
         <input type="text" class="form-control" id="city" placeholder="Caronno Pertusella" required formControlName="citta">
       </div>
       <div class="col-md-4">
-        <label for="provincia" class="form-label">Provincia</label>
+        <label for="provincia" class="form-label">Provincia*</label>
         <input type="text" class="form-control" id="provincia" required formControlName="provincia">
       </div>
       <div class="col-md-2">
-        <label for="cap" class="form-label">Cap</label>
+        <label for="cap" class="form-label">Cap*</label>
         <input type="text" class="form-control" id="cap" required formControlName="cap">
       </div>
       <fieldset class="row mb-3">
-        <legend class="col-form-label col-sm-2 pt-0">Metodo di pagamento</legend>
+        <legend class="col-form-label col-sm-2 pt-0">Metodo di pagamento*</legend>
         <div class="col-sm-10">
           <div class="form-check">
             <input class="form-check-input" type="radio" id="gridRadios1" value="paypal" checked formControlName="paymentMethod" >
@@ -52,16 +52,43 @@
         </div>
       </fieldset>
       <div class="col-12">
-        <label for="address" class="form-label">Numero Carta</label>
+        <label for="address" class="form-label">Numero Carta*</label>
         <input type="text" class="form-control" id="address" placeholder="0000-0000-0000-0000" required formControlName="numeroCarta">
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Acquista</button>
+        <div class="alert alert-danger" role="alert" *ngIf="form.invalid && form.touched">
+          Compilare i campi obbligatori indicati da un asterisco * !!
+        </div>
+        <button type="submit" class="btn btn-primary mb-5 position-relative start-50" [disabled]="form.invalid">Acquista</button>
+
       </div>
   </form>
 </div>
-<div [hidden]="!submitted">
-  <h2>Acquisto completato! </h2>
-  Ecco il riepilogo del tuo ordine
-
-</div>
+<ng-template #acquisto>
+  <div class="card m-3">
+    <div class="card-header">
+     Acquisto Completato!
+    </div>
+    <div class="card-body">
+      <p class="card-text">Ecco un riepilogo del tuo acquisto: </p>
+      <ul class="list-group px-5" >
+        <li>Ordine numero: #{{random}}</li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Nome: {{model.nomeFatturazione}}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Email: {{model.email}}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Indirizzo: {{model.indirizzo1}} {{model.indirizzo2}}, {{model.citta}}, {{model.provincia}}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          CAP: {{model.cap}}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Pagamento: {{model.paymentMethod}}
+        </li>
+        </ul>
+    </div>
+  </div>
+</ng-template>

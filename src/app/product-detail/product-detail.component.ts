@@ -19,12 +19,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   product!:any;
   //variabile caricamento pagina
   ready:boolean=false;
+  //variabile contatore oggetti aggiunti (estetica)
+  addCount:number=0
   //funzione che aggiunge il prodotto all'array carrello del srv, e aggiorna icona navbar
   addToCart(){
     this.srv.cart.push(this.product)
     console.log('PRODOTTO AGGIUNTO AL CARRELLO', this.srv.cart)
     this.srv.counter++
-
+    this.addCount++
   }
   //nel constructor inietto dipendenze necessarie e mi faccio dare dalla rotta l'id
   constructor(private router:ActivatedRoute, private srv:ServiceService, private https:HttpClient) {
@@ -44,8 +46,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
        this.ready=true;
      })
   }
-//faccio unsubscribe dell'observable della rotta
+//faccio unsubscribe dell'observable della rotta e resetto la variabile dell'alert
   ngOnDestroy(): void {
-    this.sub.unsubscribe()
+    this.sub.unsubscribe();
+    this.addCount=0;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../interface/product';
 import { ServiceService } from '../service/service.service';
@@ -8,11 +8,12 @@ import { ServiceService } from '../service/service.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   //recupero array carrello dal service, variabile total per il costo totale
   cart:Product[]=this.srv.cart
   total:number=0
   checkout:boolean=false;
+  submitted:boolean=this.srv.submitted
   //funzione che mi calcola il totale sommando tutti i price dell'array carrello
   updateTotal(){
     this.total=this.cart.reduce<number>((acc,obj)=>{
@@ -35,9 +36,13 @@ export class CartComponent implements OnInit {
     this.checkout=!this.checkout;
   }
   //inietto il service e il router
-  constructor(private srv:ServiceService, private router:Router) { }
+  constructor(public srv:ServiceService, private router:Router) { }
   //on init aggiorno il total
   ngOnInit(): void {
     this.updateTotal()
+  }
+  //quando completo l'acquisto ed esco dal carrello rimetto la variabile submitted a false
+  ngOnDestroy(): void {
+    this.srv.submitted=false;
   }
 }

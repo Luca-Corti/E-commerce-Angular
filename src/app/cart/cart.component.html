@@ -25,6 +25,6 @@
   </div>
 </ng-template>
 </ng-container>
-<app-checkout [total]="total" [cart]="cart" *ngIf="checkout"></app-checkout>
-<button class="btn btn-primary position-relative start-50" *ngIf="checkout" (click)="setCheckout()">Modifica ordine</button>
+<app-checkout [total]="total" [cart]="cart" *ngIf="checkout && !this.srv.submitted"></app-checkout>
+<button class="btn btn-primary position-relative start-50" *ngIf="checkout && !this.srv.submitted" (click)="setCheckout()">Modifica ordine</button>
 <app-form *ngIf="checkout"></app-form>

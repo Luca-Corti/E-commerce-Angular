@@ -9,7 +9,8 @@ export class ServiceService {
   //array carrello e contatore prodotti nel carrello
   cart:Product[]=[];
   counter:number=0
-
+  //variabile per il submit del form
+  submitted:boolean=false
   constructor(private http:HttpClient) { }
   //funzione che mi fa la chiamata get di tutti i prodotti
   getProducts(){
