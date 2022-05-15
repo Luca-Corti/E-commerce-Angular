@@ -1,16 +1,18 @@
+<ng-container *ngIf="!checkout">
 <ng-container *ngIf="cart.length>0; else empty">
-<ul class="list-group" >
+  <h1 class="m-5">Il tuo carrello:</h1>
+<ul class="list-group px-5" >
   <li *ngFor="let product of cart;let i = index" class="list-group-item d-flex justify-content-between align-items-center">
-    {{product.title.substring(0,45)}}...
+    {{product.title}}
     <span>{{product.price}}€</span>
     <button class="btn btn-danger" (click)="deleteFromCart(i)">X</button>
   </li>
   <li class="list-group-item d-flex justify-content-end align-items-center">Totale: {{total}}€</li>
 </ul>
 <div class="container my-3">
-<button class="btn btn-primary">Procedi al checkout</button>
+<button class="btn btn-primary" (click)="setCheckout()">Procedi all'ordine</button>
 </div>
-</ng-container>
+  </ng-container>
 <ng-template #empty>
   <div class="card m-3">
     <div class="card-header">
@@ -22,3 +24,7 @@
     </div>
   </div>
 </ng-template>
+</ng-container>
+<app-checkout [total]="total" [cart]="cart" *ngIf="checkout"></app-checkout>
+<button class="btn btn-primary position-relative start-50" *ngIf="checkout" (click)="setCheckout()">Modifica ordine</button>
+<app-form *ngIf="checkout"></app-form>

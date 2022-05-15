@@ -1,6 +1,6 @@
 <ng-container *ngIf="ready; else load">
-  <h1 class="text-center">GameGo</h1>
-  <div class="row row-cols-1 row-cols-md-3 g-4 px-4">
+  <h1 class="text-center my-3">GameGo</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4 m-0 px-5">
     <div class="col" *ngFor="let product of products">
       <div class="card h-100">
         <img [src]="product.url" [routerLink]="['/product', product.id]" class="card-img-top" alt="product image">
@@ -20,3 +20,4 @@
       </div>
     </div>
   </ng-template>
+  <app-footer></app-footer>

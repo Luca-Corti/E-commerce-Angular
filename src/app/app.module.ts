@@ -10,6 +10,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdCarouselBasic } from './carousel-basic/carousel-basic.component';
+import { FooterComponent } from './footer/footer.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { FormComponent } from './form/form.component';
 
 
 const routes:Route[]=[
@@ -39,7 +42,10 @@ const routes:Route[]=[
     HomepageComponent,
     CartComponent,
     NgbdCarouselBasic,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FooterComponent,
+    CheckoutComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes), NgbModule],

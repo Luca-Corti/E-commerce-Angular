@@ -12,6 +12,7 @@ export class CartComponent implements OnInit {
   //recupero array carrello dal service, variabile total per il costo totale
   cart:Product[]=this.srv.cart
   total:number=0
+  checkout:boolean=false;
   //funzione che mi calcola il totale sommando tutti i price dell'array carrello
   updateTotal(){
     this.total=this.cart.reduce<number>((acc,obj)=>{
@@ -28,6 +29,10 @@ export class CartComponent implements OnInit {
   //redirect a homepage
   redirect(){
     this.router.navigate([''])
+  }
+  //funzione che nasconde il carrello durante il checkout
+  setCheckout(){
+    this.checkout=!this.checkout;
   }
   //inietto il service e il router
   constructor(private srv:ServiceService, private router:Router) { }
