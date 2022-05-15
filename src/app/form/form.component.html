@@ -1,61 +1,67 @@
 <div class="container">
- <form class="row g-3" (ngSubmit)="submit()" #f>
-  <div class="col-md-6">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" ngModel name="email">
-  </div>
-  <div class="col-md-6">
-    <label for="nome" class="form-label">Nome fatturazione</label>
-    <input type="text" class="form-control" id="nome" ngModel name="nome-fatturazione">
-  </div>
-  <div class="col-12">
-    <label for="address" class="form-label">indirizzo di consegna</label>
-    <input type="text" class="form-control" id="address" placeholder="Via Mario Rossi 3" ngModel name="indirizzo1">
-  </div>
-  <div class="col-12">
-    <input type="text" class="form-control" id="address2"  ngModel name="indirizzo2">
-  </div>
-  <div class="col-md-6">
-    <label for="city" class="form-label">Città</label>
-    <input type="text" class="form-control" id="city" placeholder="Caronno Pertusella" ngModel name="citta">
-  </div>
-  <div class="col-md-4">
-    <label for="provincia" class="form-label">Provincia</label>
-    <input type="text" class="form-control" id="provincia" ngModel name="provincia">
-  </div>
-  <div class="col-md-2">
-    <label for="cap" class="form-label">Cap</label>
-    <input type="text" class="form-control" id="cap" ngModel name="cap">
-  </div>
-  <fieldset class="row mb-3">
-    <legend class="col-form-label col-sm-2 pt-0">Metodo di pagamento</legend>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="paypal" checked ngModel name="payment-method">
-        <label class="form-check-label" for="gridRadios1">
-          Paypal
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="visa" ngModel name="payment-method">
-        <label class="form-check-label" for="gridRadios2">
-          Visa
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="AE" ngModel name="payment-method">
-        <label class="form-check-label" for="gridRadios3">
-          American express
-        </label>
-      </div>
+  <p></p>
+  <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" required formControlName="email">
     </div>
-  </fieldset>
-  <div class="col-12">
-    <label for="address" class="form-label">Numero Carta</label>
-    <input type="text" class="form-control" id="address" placeholder="0000-0000-0000-0000" ngModel name="numero-carta">
-  </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Acquista</button>
-  </div>
-</form>
+      <div class="col-md-6">
+        <label for="nome" class="form-label">Nome fatturazione</label>
+        <input type="text" class="form-control" id="nome" required formControlName="nomeFatturazione">
+      </div>
+      <div class="col-12">
+        <label for="address" class="form-label">indirizzo di consegna</label>
+        <input type="text" class="form-control" id="address" placeholder="Via Mario Rossi 3" required formControlName="indirizzo1">
+      </div>
+      <div class="col-12">
+        <input type="text" class="form-control" id="address2" formControlName="indirizzo2" >
+      </div>
+      <div class="col-md-6">
+        <label for="city" class="form-label">Città</label>
+        <input type="text" class="form-control" id="city" placeholder="Caronno Pertusella" required formControlName="citta">
+      </div>
+      <div class="col-md-4">
+        <label for="provincia" class="form-label">Provincia</label>
+        <input type="text" class="form-control" id="provincia" required formControlName="provincia">
+      </div>
+      <div class="col-md-2">
+        <label for="cap" class="form-label">Cap</label>
+        <input type="text" class="form-control" id="cap" required formControlName="cap">
+      </div>
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Metodo di pagamento</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="gridRadios1" value="paypal" checked formControlName="paymentMethod" >
+            <label class="form-check-label" for="gridRadios1">
+              Paypal
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="gridRadios2" value="visa" formControlName="paymentMethod">
+            <label class="form-check-label" for="gridRadios2">
+              Visa
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="gridRadios3" value="AE" formControlName="paymentMethod">
+            <label class="form-check-label" for="gridRadios3">
+              American express
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      <div class="col-12">
+        <label for="address" class="form-label">Numero Carta</label>
+        <input type="text" class="form-control" id="address" placeholder="0000-0000-0000-0000" required formControlName="numeroCarta">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Acquista</button>
+      </div>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <h2>Acquisto completato! </h2>
+  Ecco il riepilogo del tuo ordine
+
 </div>

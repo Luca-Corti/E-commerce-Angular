@@ -13,6 +13,8 @@ import { NgbdCarouselBasic } from './carousel-basic/carousel-basic.component';
 import { FooterComponent } from './footer/footer.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormComponent } from './form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 const routes:Route[]=[
@@ -48,7 +50,7 @@ const routes:Route[]=[
     FormComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, RouterModule.forRoot(routes), NgbModule],
+    BrowserModule, HttpClientModule, RouterModule.forRoot(routes), NgbModule, ReactiveFormsModule],
   providers: [],
   exports: [NgbdCarouselBasic],
   bootstrap: [AppComponent]

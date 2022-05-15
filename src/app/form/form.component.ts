@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
+import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-form',
@@ -7,26 +8,42 @@ import { FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  submitted:boolean=false;
 
-  constructor() { }
+  constructor(private srv:ServiceService) { }
+  model!:{
+    "email":"",
+    "nomeFatturazione":"",
+    "indirizzo1":"",
+    "indirizzo2":"",
+    "citta":"",
+    "provincia":"",
+    "cap":"",
+    "paymentMethod":"",
+    "numeroCarta":""
+  }
   form!:FormGroup
   ngOnInit(): void {
     this.form = new FormGroup({
-      "email": new FormControl(null),
-      "nome-fatturazione": new FormControl(null),
-      "indirizzo1": new FormControl(null),
+      "email": new FormControl(null, [Validators.required , Validators.email]),
+      "nomeFatturazione": new FormControl(null, Validators.required),
+      "indirizzo1": new FormControl(null, Validators.required),
       "indirizzo2": new FormControl(null),
-      "citta": new FormControl(null),
-      "provincia": new FormControl(null),
-      "cap": new FormControl(null),
-      "payment-method": new FormControl(null),
-      "numero-carta": new FormControl(null)
+      "citta": new FormControl( null, Validators.required),
+      "provincia": new FormControl(null, Validators.required),
+      "cap": new FormControl(null, Validators.required),
+      "paymentMethod": new FormControl(null, Validators.required),
+      "numeroCarta": new FormControl(null, Validators.required)
     })
   }
-  @ViewChild ("f") formdata!:NgForm
-  submit(){
-    alert('acquisto completato')
-    console.log(this.formdata)
-  }
 
+  onSubmit(){
+    this.submitted=true;
+    this.model= this.form.value
+    console.log("MODEL: ", this.model)
+    //this.srv.post(this.model, this.srv.cart)  Con un metodo http.post() definito nel service posto i dati acquisto nel server
+    this.srv.cart=[];
+    this.srv.counter=0
+
+  }
 }
