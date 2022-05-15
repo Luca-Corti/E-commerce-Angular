@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -23,7 +23,10 @@ export class FormComponent implements OnInit {
       "numero-carta": new FormControl(null)
     })
   }
-  submit(f:any){
+  @ViewChild ("f") formdata!:NgForm
+  submit(){
     alert('acquisto completato')
+    console.log(this.formdata)
   }
+
 }
